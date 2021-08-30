@@ -1,5 +1,5 @@
-const Discord = require('discord.js')
-const db = require('quick.db')
+const db = require("quick.db")
+const Discord = require("discord.js")
 
 module.exports = {
     name: "difficulty",
@@ -24,7 +24,7 @@ module.exports = {
             await db.set(`bot.difficulty.Overkill`, `<:CROSSED:881140525929992193>`)
             await db.set(`bot.difficulty.Mayhem`, `<:CROSSED:881140525929992193>`)
             await db.set(`bot.difficulty.DeathWish`, `<:CROSSED:881140525929992193>`)
-            await db.set(`bot.difficulty.DeathSentance`, `<:CROSSED:881140525929992193>`)
+            await db.set(`bot.difficulty.DeathSentence`, `<:CROSSED:881140525929992193>`)
 
         } else if (badge == "Hard") {
             await db.set(`bot.difficulty.Hard`, `<:CHECKED:881140761356292096>`)
@@ -38,7 +38,7 @@ module.exports = {
             await db.set(`bot.difficulty.Overkill`, `<:CROSSED:881140525929992193>`)
             await db.set(`bot.difficulty.Mayhem`, `<:CROSSED:881140525929992193>`)
             await db.set(`bot.difficulty.DeathWish`, `<:CROSSED:881140525929992193>`)
-            await db.set(`bot.difficulty.DeathSentance`, `<:CROSSED:881140525929992193>`)
+            await db.set(`bot.difficulty.DeathSentence`, `<:CROSSED:881140525929992193>`)
         } else if (badge == "Very Hard") {
             await db.set(`bot.difficulty.VeryHard`, `<:CHECKED:881140761356292096>`)
             const vhSuc = new Discord.MessageEmbed()
@@ -51,7 +51,7 @@ module.exports = {
             await db.set(`bot.difficulty.Overkill`, `<:CROSSED:881140525929992193>`)
             await db.set(`bot.difficulty.Mayhem`, `<:CROSSED:881140525929992193>`)
             await db.set(`bot.difficulty.DeathWish`, `<:CROSSED:881140525929992193>`)
-            await db.set(`bot.difficulty.DeathSentance`, `<:CROSSED:881140525929992193>`)
+            await db.set(`bot.difficulty.DeathSentence`, `<:CROSSED:881140525929992193>`)
         } else if (badge == "Overkill") {
             await db.set(`bot.difficulty.Overkill`, `<:CHECKED:881140761356292096>`)
             const oSuc = new Discord.MessageEmbed()
@@ -64,7 +64,7 @@ module.exports = {
             await db.set(`bot.difficulty.VeryHard`, `<:CROSSED:881140525929992193>`)
             await db.set(`bot.difficulty.Mayhem`, `<:CROSSED:881140525929992193>`)
             await db.set(`bot.difficulty.DeathWish`, `<:CROSSED:881140525929992193>`)
-            await db.set(`bot.difficulty.DeathSentance`, `<:CROSSED:881140525929992193>`)
+            await db.set(`bot.difficulty.DeathSentence`, `<:CROSSED:881140525929992193>`)
         } else if (badge == "Mayhem") {
             await db.set(`bot.difficulty.Mayhem`, `<:CHECKED:881140761356292096>`)
             const mSuc = new Discord.MessageEmbed()
@@ -77,7 +77,7 @@ module.exports = {
             await db.set(`bot.difficulty.VeryHard`, `<:CROSSED:881140525929992193>`)
             await db.set(`bot.difficulty.Overkill`, `<:CROSSED:881140525929992193>`)
             await db.set(`bot.difficulty.DeathWish`, `<:CROSSED:881140525929992193>`)
-            await db.set(`bot.difficulty.DeathSentance`, `<:CROSSED:881140525929992193>`)
+            await db.set(`bot.difficulty.DeathSentence`, `<:CROSSED:881140525929992193>`)
         } else if (badge == "Death Wish") {
             await db.set(`bot.difficulty.DeathWish`, `<:CHECKED:881140761356292096>`)
             const dwSuc = new Discord.MessageEmbed()
@@ -90,11 +90,11 @@ module.exports = {
             await db.set(`bot.difficulty.VeryHard`, `<:CROSSED:881140525929992193>`)
             await db.set(`bot.difficulty.Overkill`, `<:CROSSED:881140525929992193>`)
             await db.set(`bot.difficulty.Mayhem`, `<:CROSSED:881140525929992193>`)
-            await db.set(`bot.difficulty.DeathSentance`, `<:CROSSED:881140525929992193>`)
+            await db.set(`bot.difficulty.DeathSentence`, `<:CROSSED:881140525929992193>`)
         } else if (badge == "Death Sentence") {
-            await db.set(`bot.difficulty.DeathSentance`, `<:CHECKED:881140761356292096>`)
+            await db.set(`bot.difficulty.DeathSentence`, `<:CHECKED:881140761356292096>`)
             const dsSuc = new Discord.MessageEmbed()
-                .setDescription(`Successfully changed the difficulty to ****!`)
+                .setDescription(`Successfully changed the difficulty to **Death Sentence**!`)
                 .setColor("BLUE")
             message.channel.send(dsSuc)
 

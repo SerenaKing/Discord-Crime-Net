@@ -1,17 +1,14 @@
-const {
-    Client,
-    Collection,
-    MessageEmbed
-} = require("discord.js");
+const { Client, Collection, MessageEmbed } = require("discord.js")
 
-const fs = require("fs");
+const fs = require("fs")
 const ms = require('ms')
 
 const chalk = require("chalk")
 
 const prefix = "CN!";
 const version = "Beta 1.0";
-const botconfig = require("./json/botconfig.json")
+// import { token } from "./json/botconfig.json"
+const { token } = require("./json/botconfig.json")
 
 const client = new Client();
 
@@ -27,28 +24,29 @@ client.categories = fs.readdirSync("./commands/");
 const disbut = require('discord-buttons')(client);
 
 // let test1 = ['Crime Net', 'Largest Criminal Network System', `All information is public! they eye is watching!`, `Version: ${version}`],
-//     i = 0;
+//     i = 0; -- This didn't work. Should it work? (Old Client Activity removed)
 
 const activities = [
     { name: `Crime.net`, type: 'WATCHING'},
     { name: `Largest Criminal Network`, type: 'WATCHING'},
     { name: `All Crime unfold!`, type: 'WATCHING'},
     { name: `Version: ${version}`, type: 'LISTENING'}
-    // { name: `Testing 😳`, type: 'CUSTOM_STATUS'}
+    // { name: `Testing 😳`, type: 'CUSTOM_STATUS'} -- Bots can't seem to have a custom status
 ]
 
 client.on('ready', () => {
 
     // client.user.setActivity('Game', { type: "COMPETING", type: "CUSTOM_STATUS", type: "LISTENING", type: "PLAYING", type: "STREAMING", type: "WATCHING"})
+    // Define all other activity types.
 
     client.user.setPresence({ status: "online", activity: activities[0] });
 
     let activity = 1;
 
     setInterval(() => {
-        activities[6] = { name: `CN!help | ${client.guilds.cache.size} guilds`, type: 'WATCHING' };
-        activities[7] = { name: `CN!help | ${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)} users`, type: 'WATCHING' }; 
-        if (activity > 7) activity = 0;
+        activities[4] = { name: `CN!help | ${client.guilds.cache.size} guilds`, type: 'WATCHING' };
+        activities[5] = { name: `CN!help | ${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)} users`, type: 'WATCHING' }; 
+        if (activity > 5) activity = 0;
         client.user.setActivity(activities[activity]);
         activity++;
     }, 10000);
@@ -84,4 +82,31 @@ client.on("message", async message => {
 
 });
 
-client.login(botconfig.token);
+client.on("guildMemberAdd", (guildMember) => {
+
+    if (guildMember.guild.id === "881135798223769640") {
+        const welcomeChannel = guildMember.guild.channels.cache.get("")
+        const embed = new MessageEmbed()
+            .setTitle(`Crime.net | Beta Program`)
+            .setColor(`RED`)
+            .setDescription(`
+Welcome, <@!${guildMember.user.id}>
+
+You have joined the \`Crime.net\` Beta Program. 
+
+This server is mainly for the testing of new features of the bot & other game breaking changes.
+If you have been invited to this server by a developer then you're blessed by the crime.net gods because not only will you have access to special perks.
+you will also be able to directly get your suggestions seen easier and have more limited access to the higher standards. We might even user your name!
+
+- Crime.net
+            `)
+            .setFooter(guildMember.user.tag, guildMember.user.displayAvatarURL())
+            .setTimestamp()
+        welcomeChannel.send(embed)
+    } else if (guildMember.guild.id === "") {
+    } else {
+        return
+    }
+})
+
+client.login(token);
