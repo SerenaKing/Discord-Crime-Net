@@ -2,7 +2,7 @@ const db = require("quick.db")
 const { MessageEmbed } = require("discord.js")
 const ms = require("ms")
 
-module.exports  = {
+module.exports = {
 	name: "work",
 	category: "economy",
 	aliases: ["job"],
@@ -10,7 +10,7 @@ module.exports  = {
 
 		message.delete()
 
-		let timeout = 86400000
+		let timeout = 1
 		let daily = await db.fetch(`user.daily.${message.author.id}`)
 
 		if (daily !== null && timeout - (Date.now() - daily) > 0) {
@@ -18,7 +18,7 @@ module.exports  = {
 
 			message.channel.send(`You have to wait ~24 hours before using this command again!`)
 		} else if (args.slice(0).join(' ') == "Mall Crasher") {
-			if (db.get(`bot.difficulty.Normal`)) {
+			if (db.get(`bot.difficulty.Normal`, "<:CHECKED:881140761356292096>")) {
 				const condition = [
 					"You have completed the mission!",
 					"You have failed the mission!"
@@ -54,30 +54,30 @@ module.exports  = {
 					db.set(`user.daily.${message.author.id}`, Date.now())
 				} else if (con === "You have failed the mission!") {
 					const embed2 = new MessageEmbed()
-					.setTitle(`Failed the heist!`)
-					.setColor("RED")
-					.setDescription(`You didn't earn anything!`)
-					.setFooter(message.author.tag, message.author.displayAvatarURL())
-				message.channel.send(embed2)
+						.setTitle(`Failed the heist!`)
+						.setColor("RED")
+						.setDescription(`You didn't earn anything!`)
+						.setFooter(message.author.tag, message.author.displayAvatarURL())
+					message.channel.send(embed2)
 
-				// db.add(`user.balance.${message.author.id}`, randomAmount)
-				db.set(`user.daily.${message.author.id}`, Date.now())
+					// db.add(`user.balance.${message.author.id}`, randomAmount)
+					db.set(`user.daily.${message.author.id}`, Date.now())
+				} else if (db.get(`bot.difficulty.Hard`, "<:CHECKED:881140761356292096>")) {
+
+				} else if (db.get(`bot.difficulty.VeryHard`, "<:CHECKED:881140761356292096>")) {
+
+				} else if (db.get(`bot.difficulty.Overkill`, "<:CHECKED:881140761356292096>")) {
+
+				} else if (db.get(`bot.difficulty.Mayhem`, "<:CHECKED:881140761356292096>")) {
+
+				} else if (db.get(`bot.difficulty.DeathWish`, "<:CHECKED:881140761356292096>")) {
+
+				} else if (db.get(`bot.difficulty.DeathSentence`, "<:CHECKED:881140761356292096>")) {
+
 				}
-			} else if (db.get(`bot.difficulty.Hard`)) {
-
-			} else if (db.get(`bot.difficulty.VeryHard`)) {
-
-			} else if (db.get(`bot.difficulty.Overkill`)) {
-
-			} else if (db.get(`bot.difficulty.Mayhem`)) {
-
-			} else if (db.get(`bot.difficulty.DeathWish`)) {
-
-			} else if (db.get(`bot.difficulty.DeathSentence`)) {
+			} else if (args[0] == "") {
 
 			}
-		} else if (args[0] == "") {
-
 		}
 	}
 }

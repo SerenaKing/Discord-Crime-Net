@@ -24,7 +24,7 @@ module.exports = {
 		} else if (args.slice(0).join(' ') == "Full Body Armor") {
 			if (messageAuthor < 60000) return message.channel.send(`You don't have the \`60.000\` required to buy this!`)
 			if (db.fetch(`skills.ironman.${message.author.id}`) == null) {
-				return message.channel.send(`You don't have the required \`Iron Man\` Skill to buy thi!.`)
+				return message.channel.send(`You don't have the required \`Iron Man\` Skill to buy this!.`)
 			} else if (db.fetch(`skills.ironman.${message.author.id}`, "<:CHECKED:881140761356292096>")) {
 				message.channel.send(`You have bought **Full Body Armor**!`)
 				await db.set(`items.fba.${message.author.id}`, "<:CHECKED:881140761356292096>")
