@@ -3,6 +3,8 @@ const { Client, Collection, MessageEmbed } = require("discord.js")
 const fs = require("fs")
 const ms = require('ms')
 
+const quickdb = require("quick.db")
+
 const chalk = require("chalk")
 
 const prefix = "CN!";
@@ -35,6 +37,11 @@ const activities = [
 ]
 
 client.on('ready', () => {
+
+    // fs.writeFile('db.txt', JSON.stringify(quickdb.all()), function(e) {
+    //     if(e) console.log(e)
+    //     console.log('Success!')
+    // })
 
     // client.user.setActivity('Game', { type: "COMPETING", type: "CUSTOM_STATUS", type: "LISTENING", type: "PLAYING", type: "STREAMING", type: "WATCHING"})
     // Define all other activity types.
@@ -85,10 +92,10 @@ client.on("message", async message => {
 client.on("guildMemberAdd", (guildMember) => {
 
     if (guildMember.guild.id === "881135798223769640") {
-        const welcomeChannel = guildMember.guild.channels.cache.get("")
+        const welcomeChannel = guildMember.guild.channels.cache.get("881805184676798484")
         const embed = new MessageEmbed()
             .setTitle(`Crime.net | Beta Program`)
-            .setColor(`RED`)
+            .setColor("RED")
             .setDescription(`
 Welcome, <@!${guildMember.user.id}>
 

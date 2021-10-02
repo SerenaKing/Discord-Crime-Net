@@ -44,12 +44,19 @@ module.exports = {
         if (business == null) {
                 business = "None Set"
         }
+
+        let skillpoints = db.get(`user.skillpoints.${mem.id}`)
+        if (skillpoints == null) {
+                skillpoints = 0
+        }
+
     
         const em = new Discord.MessageEmbed()
         em.setTitle(`${message.author.username}'s Profile`)
+        em.setColor("#34B5C6")
         em.setDescription(`This has to be changed to something. But what?`)
         em.addField('❯ User Information', (`
-\`\`\`FIB Files:\`\`\`
+\`\`\`FBI Files:\`\`\`
 **~~--~~ Username:** 
 *${username}*
 
@@ -60,7 +67,8 @@ module.exports = {
 *${desc}*
 `))
         em.addField(`❯ | Users Economy`, (`
-Users Balance: ${bal}
+<:CASH:882332283112161320> | Users Balance: ${bal}
+<:Skills:882331901707321374> | Users Skill Points: ${skillpoints}
         `))
         em.addField(`❯ | Difficulty`, (`
 Normal: ${Norml || "<:CROSSED:881140525929992193>"}
@@ -93,6 +101,11 @@ Normal: ${Norml || "<:CROSSED:881140525929992193>"}
                 bal1 = 0
         }
 
+        let skillpoints1 = db.get(`user.skillpoints.${mentionedMember.id}`)
+        if (skillpoints1 == null) {
+                skillpoints1 = 0
+        }
+
         var desc1 = db.get(`desc.${mentionedMember.id}`);
         if (desc1 == null) {
                 desc1 = "This user doesn't have a description set."
@@ -110,9 +123,10 @@ Normal: ${Norml || "<:CROSSED:881140525929992193>"}
 
         const emm = new Discord.MessageEmbed()
         emm.setTitle(`${mentionedMember.user.username}'s Profile`)
+        emm.setColor("#34B5C6")
         emm.setDescription(`This has to be changed to something. But what?`)
         emm.addField('❯ User Information', (`
-\`\`\`FIB Files:\`\`\`
+\`\`\`FBI Files:\`\`\`
 **~~--~~ Username:** 
 *${username1}*
         
@@ -123,7 +137,8 @@ Normal: ${Norml || "<:CROSSED:881140525929992193>"}
 *${desc1}*
       `))
         emm.addField(`❯ | Users Economy`, (`
-        Users Balance: ${bal1}
+Users Balance: ${bal1}
+Users Skill Points: ${skillpoints1}
         `))
         emm.addField(`Difficulty`, (`
 Normal: ${Norml1 || "<:CROSSED:881140525929992193>"}

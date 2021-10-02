@@ -1,0 +1,22 @@
+[
+    {
+        "ID": "bot",
+        "data": {
+            "difficulty": {
+                "Normal": "<:CROSSED:881140525929992193>",
+                "Hard":"<:CROSSED:881140525929992193>",
+                "VeryHard":"<:CROSSED:881140525929992193>",
+                "Overkill":"<:CROSSED:881140525929992193>",
+                "Mayhem":"<:CHECKED:881140761356292096>",
+                "DeathWish":"<:CROSSED:881140525929992193>",
+                "DeathSentance":"<:CROSSED:881140525929992193>"
+            }
+        }
+    },
+    {
+        "ID": "desc",
+        "data":{ 
+
+        }
+    },
+    {"ID":"user","data":{"balance":{"871877975346405388":60000}}},{"ID":"items","data":{"suit":{"871877975346405388":"<:CHECKED:881140761356292096>"}}}]

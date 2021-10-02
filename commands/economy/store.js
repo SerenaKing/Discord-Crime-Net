@@ -34,8 +34,6 @@ C4/Trip Mines:
 			.setFooter(message.author.tag, message.author.displayAvatarURL())
 			.setTimestamp()
 		message.channel.send(embed)
-		// await db.delete(`items.fba.${message.author.id}`, "<:CROSSED:881140525929992193>")
-		
 	}
 }
 
@@ -64,7 +62,7 @@ Hecate II
 M107
 
 -- LMG's
-
+M60
 
 
 ---- Armor

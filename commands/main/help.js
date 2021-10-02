@@ -26,6 +26,8 @@ setBusinessName - Sets your business name. (To remove set a different name)
 SetDescription - Set an account description.
 setUsername - Sets a username. (to remove set a different username)
 \`\`\` Other Commands\`\`\`
+\`\`\` Owner Commands\`\`\`
+difficulty - Adjusts the difficulty of the bot.
 			`)
 			.setFooter(message.author.tag, message.author.displayAvatarURL())
 			.setTimestamp()

@@ -12,6 +12,8 @@ module.exports = {
 
         const desc = args.join(" ")
 
+        // if (desc == "")
+
         let test = db.get(`user.username.${message.author.id}`)
 
         if (!test) {

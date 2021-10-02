@@ -10,6 +10,20 @@ module.exports = {
 
         const desc = args.join(" ")
 
+        if (desc == "Crime.net") {
+            if (message.author.id !== "871877975346405388") {
+                return;
+            } else {
+                let test = db.get(`business.name.${message.author.id}`)
+
+                if (!test) {
+                    db.set(`business.name.${message.author.id}`, desc);
+                } else {
+                    db.delete(`business.name.${message.author.id}`), db.set(`business.name.${message.author.id}`, desc);
+                }
+            }
+        }
+
         let test = db.get(`business.name.${message.author.id}`)
 
         if (!test) {
